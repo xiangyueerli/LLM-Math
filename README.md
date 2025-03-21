@@ -1,3 +1,5 @@
+LLM-Math is a comprehensive evaluation framework for assessing large language models on college-level mathematics tasks. The project leverages multiple evaluation methods—including Baseline (non-cot), Chain-of-Thought (cot), and CoMAT (comat)—to process the MMLU Redux dataset and generate detailed results in CSV and JSON formats. It integrates key scripts for dataset processing (mmlu_redux.py), evaluation execution (main.py), and analytical assessment (shapley_value_evaluation.py), while providing supporting utilities (utils.py). The framework not only delivers comprehensive logs and output files but also conducts Shapley value analysis to quantify the contributions of individual components in the evaluation, ensuring a robust and transparent benchmarking process.
+
 ## File Descriptions
 
 ### `main.py`
@@ -17,8 +19,6 @@ python main.py --dataset  mmlu-redux-college_mathematics  --method <method_name>
 
 Available methods include:
 
-- non-cot: Baseline model
-- cot: Chain of Thought
 - comat: CoMAT
 
 ### `mmlu_redux.py`
@@ -39,8 +39,6 @@ This directory contains CSV files that store output for MMLU-Redux-College_Mathe
 This directory contains prompt files associated with the College Mathematics dataset:
 
 - **`comat.txt`**: Prompt file for the CoMAT method.
-- **`cot.txt`**: Prompt file for the CoT method.
-- **`non-cot.txt`**: Prompt file for the baseline method.
 
 ### `shapley_value_evaluation.py`
 
@@ -51,7 +49,3 @@ This script evaluates the Shapley value, a concept from cooperative game theory.
 This file contains the functions for making predictions using different models and evaluating their outputs, the model includes : 
 
 - **`predict_gpt`**: Uses OpenAI's GPT model to generate a response based on the provided messages.
-
-- **`predict_gemini`**: Uses Google's Gemini model to generate a response based on the provided messages.
-
-- **`predict_qwen2`**: Uses the Qwen2 model to generate a response based on the provided question and options.
